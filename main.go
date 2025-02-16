@@ -13,7 +13,9 @@ func main() {
 
 	database.ConnectMongo()
 
-	app := fiber.New()
+	app := fiber.New(fiber.Config{
+		Prefork: false,
+	})
 
 	routes.SetupRoutes(app)
 
